@@ -1,0 +1,38 @@
+﻿<Page x:Class="Calendar.SelectionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Calendar"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="500"
+      Title="SelectionPage">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="ToMainPage" Content="{materialDesign:PackIcon Kind=ArrowLeft, Size=25}" ToolTip="Icon"  Grid.Column="0" Grid.Row="0" Click="ToMainPage_Click" Background="#FF2654A9"/>
+        <ListBox x:Name="Emotions" ScrollViewer.CanContentScroll="False" Grid.Row="2" Grid.ColumnSpan="7" Grid.RowSpan="5" />
+        <TextBlock Name="TakeText" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="0" Text="Март 2035" VerticalAlignment="Center" TextAlignment="Center" FontSize="36" FontFamily="Arial" />
+        <TextBlock Name="Question" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Text="Какие эмоции вы сегодня испытывали?" VerticalAlignment="Center" TextAlignment="Center" FontSize="16" FontFamily="Arial" />
+        <Button x:Name="SaveExit" Content="Сохранить и выйти" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="7" Click="SaveExit_Click" VerticalAlignment="Center" Background="#FF2654A9"/>
+    </Grid>
+</Page>
