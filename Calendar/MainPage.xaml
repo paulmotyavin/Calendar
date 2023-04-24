@@ -30,5 +30,6 @@
         <Button x:Name="PreviousMonth" Content="{materialDesign:PackIcon Kind=ArrowLeft, Size=25}" ToolTip="Icon"  Grid.Column="0" Grid.Row="0" Click="PreviousMonth_Click" Background="#FF2654A9"/>
         <Button x:Name="NextMonth" Content="{materialDesign:PackIcon Kind=ArrowRight, Size=25}" ToolTip="Icon"  Grid.Column="6" Grid.Row="0" Click="NextMonth_Click" Background="#FF2654A9"/>
         <TextBlock Name="MonthYear" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="0" Text="Всем привет" VerticalAlignment="Center" TextAlignment="Center" FontSize="36" FontFamily="Arial" />
+        <UniformGrid Rows="7" Columns="6" Name="panel" Grid.Row="1" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="7"/>
     </Grid>
 </Page>

@@ -72,8 +72,8 @@
     <Compile Include="CardsDay.xaml.cs">
       <DependentUpon>CardsDay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChooseUser.cs" />
     <Compile Include="Deserialize.cs" />
-    <Compile Include="images\ChooseUser.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

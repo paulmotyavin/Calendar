@@ -20,10 +20,8 @@ namespace Calendar
         public MainWindow()
         {
             InitializeComponent();
-/*            MainPage mainPage = new MainPage();
-            PagesFrame.Content = mainPage;*/
-            SelectionPage page = new SelectionPage();
-            PagesFrame.Content = page;
+            MainPage mainPage = new MainPage();
+            PagesFrame.Content = mainPage;
         }
     }
 }

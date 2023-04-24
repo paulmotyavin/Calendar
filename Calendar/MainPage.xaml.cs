@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Calendar
 {
-    /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
-    /// </summary>
     public partial class MainPage : Page
     {
         public int month, year;
@@ -32,21 +29,30 @@ namespace Calendar
                 date = new DateTime(year, month, 1);
                 string yearMonth = date.ToString("MMMM yyyy");
                 MonthYear.Text = yearMonth;
+                int days = DateTime.DaysInMonth(year, month);
+                panel.Children.Clear();
+                for (int i = 1; i <= days; i++)
+                {
+                    CardsDay cards = new CardsDay();
+                    cards.days(i, month, year);
+                    panel.Children.Add(cards);
+                }
             }
             else
             {
-                int days = DateTime.DaysInMonth(year, month);
-
-                /*for (int i = 1; i <= days; i++)
-                {
-                    CardsDay cards = new CardsDay();
-                    cards.days(i);
-                    grid.Children.Add(cards);
-                }*/
+                
                 date = date.AddMonths(-1);
                 string yearMonth = date.ToString("MMMM yyyy");
                 MonthYear.Text = yearMonth;
                 month--;
+                int days = DateTime.DaysInMonth(year, month);
+                panel.Children.Clear();
+                for (int i = 1; i <= days; i++)
+                {
+                    CardsDay cards = new CardsDay();
+                    cards.days(i, month, year);
+                    panel.Children.Add(cards);
+                }
             }
         }
 
@@ -59,40 +65,52 @@ namespace Calendar
                 date = new DateTime(year, month, 1);
                 string yearMonth = date.ToString("MMMM yyyy");
                 MonthYear.Text = yearMonth;
-            }
-            else
-            {
                 int days = DateTime.DaysInMonth(year, month);
-
-                /*for (int i = 1; i <= days; i++)
+                panel.Children.Clear();
+                for (int i = 1; i <= days; i++)
                 {
                     CardsDay cards = new CardsDay();
-                    cards.days(i);
-                    grid.Children.Add(cards);
-                }*/
+                    cards.days(i, month, year);
+                    panel.Children.Add(cards);
+                }
+            }
+            else
+            {        
                 date = date.AddMonths(1);
                 string yearMonth = date.ToString("MMMM yyyy");
                 MonthYear.Text = yearMonth;
                 month++;
+                int days = DateTime.DaysInMonth(year, month);
+                panel.Children.Clear();
+                for (int i = 1; i <= days; i++)
+                {
+                    CardsDay cards = new CardsDay();
+                    cards.days(i,month, year);
+                    panel.Children.Add(cards);
+                }
             }
         }
 
         public MainPage()
         {
             InitializeComponent();
+            Date();
+        }
+        private void Date()
+        {
             date = DateTime.Now;
             string yearMonth = date.ToString("MMMM yyyy");
             month = date.Month;
             year = date.Year;
             MonthYear.Text = yearMonth;
             int days = DateTime.DaysInMonth(year, month);
-
-            /*for (int i = 1; i <= days; i++)
+            for (int i = 1; i <= days; i++)
             {
                 CardsDay cards = new CardsDay();
-                cards.days(i);
-                grid.Children.Add(cards);
-            }*/
+                
+                cards.days(i, month,year);
+                panel.Children.Add(cards);
+            }
         }
     }
 }

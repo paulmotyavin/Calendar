@@ -17,13 +17,25 @@ namespace Calendar
 {
     public partial class CardsDay : UserControl
     {
+        public int GetMonth, GetYear;
         public CardsDay()
         {
             InitializeComponent();
         }
-        public void days(int day)
+        public void days(int day, int month, int year)
         {
             number.Text = day + "";
+            GetMonth = month;
+            GetYear = year;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = (MainWindow)Window.GetWindow(this);
+            SelectionPage page = new SelectionPage();
+            DateTime date = new DateTime(GetYear, GetMonth, Convert.ToInt32(number.Text));
+            page.TakeText.Text = date.ToString("dd MMMM yyyy");
+            window.PagesFrame.Content = page;
         }
     }
 }
