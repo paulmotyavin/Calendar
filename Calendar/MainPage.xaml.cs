@@ -27,32 +27,13 @@ namespace Calendar
                 year--;
                 month = 12;
                 date = new DateTime(year, month, 1);
-                string yearMonth = date.ToString("MMMM yyyy");
-                MonthYear.Text = yearMonth;
-                int days = DateTime.DaysInMonth(year, month);
-                panel.Children.Clear();
-                for (int i = 1; i <= days; i++)
-                {
-                    CardsDay cards = new CardsDay();
-                    cards.days(i, month, year);
-                    panel.Children.Add(cards);
-                }
+                WorkWithDate();
             }
             else
             {
-                
                 date = date.AddMonths(-1);
-                string yearMonth = date.ToString("MMMM yyyy");
-                MonthYear.Text = yearMonth;
                 month--;
-                int days = DateTime.DaysInMonth(year, month);
-                panel.Children.Clear();
-                for (int i = 1; i <= days; i++)
-                {
-                    CardsDay cards = new CardsDay();
-                    cards.days(i, month, year);
-                    panel.Children.Add(cards);
-                }
+                WorkWithDate();
             }
         }
 
@@ -63,31 +44,13 @@ namespace Calendar
                 year++;
                 month = 1;
                 date = new DateTime(year, month, 1);
-                string yearMonth = date.ToString("MMMM yyyy");
-                MonthYear.Text = yearMonth;
-                int days = DateTime.DaysInMonth(year, month);
-                panel.Children.Clear();
-                for (int i = 1; i <= days; i++)
-                {
-                    CardsDay cards = new CardsDay();
-                    cards.days(i, month, year);
-                    panel.Children.Add(cards);
-                }
+                WorkWithDate();
             }
             else
             {        
                 date = date.AddMonths(1);
-                string yearMonth = date.ToString("MMMM yyyy");
-                MonthYear.Text = yearMonth;
                 month++;
-                int days = DateTime.DaysInMonth(year, month);
-                panel.Children.Clear();
-                for (int i = 1; i <= days; i++)
-                {
-                    CardsDay cards = new CardsDay();
-                    cards.days(i,month, year);
-                    panel.Children.Add(cards);
-                }
+                WorkWithDate();
             }
         }
 
@@ -99,16 +62,20 @@ namespace Calendar
         private void Date()
         {
             date = DateTime.Now;
-            string yearMonth = date.ToString("MMMM yyyy");
             month = date.Month;
             year = date.Year;
+            WorkWithDate();
+        }
+        private void WorkWithDate()
+        {
+            string yearMonth = date.ToString("MMMM yyyy");
             MonthYear.Text = yearMonth;
             int days = DateTime.DaysInMonth(year, month);
+            panel.Children.Clear();
             for (int i = 1; i <= days; i++)
             {
                 CardsDay cards = new CardsDay();
-                
-                cards.days(i, month,year);
+                cards.days(i, month, year);
                 panel.Children.Add(cards);
             }
         }

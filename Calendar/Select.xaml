@@ -12,8 +12,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <CheckBox Grid.Column="0"/>
-        <Image Name="EmotionsImage" Source="C:\\Users\\paulscriptum\\Downloads\\joy.png" Grid.Column="1" VerticalAlignment="Center" />
+        <CheckBox Name="checkbox" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Name="EmotionsImage" Source="images\joy.png" Grid.Column="1" />
         <TextBlock Margin="10,0,0,0" Name="NameEmotions" FontSize="20" Text="hi" Grid.Column="2" TextAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

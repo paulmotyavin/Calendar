@@ -15,14 +15,12 @@ using System.Windows.Shapes;
 
 namespace Calendar
 {
-    /// <summary>
-    /// Логика взаимодействия для Select.xaml
-    /// </summary>
     public partial class Select : UserControl
     {
         public Select()
         {
             InitializeComponent();
         }
+        
     }
 }

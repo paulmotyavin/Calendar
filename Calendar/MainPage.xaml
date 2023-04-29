@@ -9,7 +9,7 @@
       d:DesignHeight="450" d:DesignWidth="550"
       Title="MainPage">
 
-    <Grid x:Name="grid" Background="White">
+    <Grid x:Name="grid" Background="#FF6FD0FF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>

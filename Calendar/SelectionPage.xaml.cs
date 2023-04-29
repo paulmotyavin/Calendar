@@ -18,6 +18,12 @@ namespace Calendar
 {
     public partial class SelectionPage : Page
     {
+        public string Name1;
+        public string Path1;
+        public bool Chosen1;
+        public DateTime Date;
+        List<Select> emotions;
+        List<ChooseUser> deserializeUsers = Deserialize.DeserializeObj<List<ChooseUser>>();
         public SelectionPage()
         {
             InitializeComponent();
@@ -52,7 +58,7 @@ namespace Calendar
             tenth.NameEmotions.Text = "Стеснение";
             tenth.EmotionsImage.Source = new BitmapImage(new Uri("images/shy.png", UriKind.Relative));
 
-            List<Select> emotions = new List<Select>() { first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth };
+            emotions = new List<Select>() { first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth };
             Emotions.ItemsSource = emotions;
         }
 
@@ -65,10 +71,58 @@ namespace Calendar
 
         private void SaveExit_Click(object sender, RoutedEventArgs e)
         {
-            /*Save*/
+            Serialize();
             MainWindow window = (MainWindow)Window.GetWindow(this);
             MainPage page = new MainPage();
             window.PagesFrame.Content = page;
+        }
+        public void DateDes(DateTime date)
+        {
+            Date = date;
+            DeserializeSel();
+        }
+        private void Serialize()
+        {
+            Par.pars.Clear();
+            foreach (Select user in emotions)
+            {
+                Par par = new Par(user.NameEmotions.Text, user.EmotionsImage.Source.ToString(), (bool)user.checkbox.IsChecked);
+                Par.pars.Add(par);
+            }
+            ChooseUser chooseUser = new ChooseUser(Date, Par.pars);
+            if (deserializeUsers != null)
+            {
+                foreach (var item in deserializeUsers.ToList())
+                {
+                    if (item.date == Date)
+                        deserializeUsers.Remove(item);
+                }
+                ChooseUser.users = deserializeUsers;
+            }
+            
+            ChooseUser.users.Add(chooseUser);
+            Deserialize.Serialization(ChooseUser.users);
+        }
+        private void DeserializeSel()
+        {
+            if (deserializeUsers != null)
+            {
+                foreach (ChooseUser user in deserializeUsers)
+                {
+                    if (Date == user.date)
+                    {
+                        foreach (Par par in user.pars)
+                        {
+                            foreach (Select select in emotions)
+                            {
+                                if (select.NameEmotions.Text == par.Name)
+                                    select.checkbox.IsChecked = par.Selected;
+                            }
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

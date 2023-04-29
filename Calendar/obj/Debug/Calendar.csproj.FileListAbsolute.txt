@@ -34,3 +34,4 @@ C:\Users\paulscriptum\source\repos\Calendar\Calendar\obj\Debug\MainPage.g.cs
 C:\Users\paulscriptum\source\repos\Calendar\Calendar\obj\Debug\MainPage.baml
 C:\Users\paulscriptum\source\repos\Calendar\Calendar\obj\Debug\CardsDay.g.cs
 C:\Users\paulscriptum\source\repos\Calendar\Calendar\obj\Debug\CardsDay.baml
+C:\Users\paulscriptum\source\repos\Calendar\Calendar\bin\Debug\json\Calendar.json
